@@ -39,7 +39,7 @@ public class LoginTest extends TestBase {
 		quitDriver();
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void testLogIn()
 	{
 		loginPage.enterEmailInput(ApplicationTestData.userEmail);

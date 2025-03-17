@@ -9,8 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.driver.core.Locator;
-
+import locators.Locator;
 import net.bytebuddy.matcher.EqualityMatcher;
 
 public class DriverExtensions {

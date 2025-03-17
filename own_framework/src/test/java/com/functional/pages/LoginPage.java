@@ -5,9 +5,10 @@ import java.util.function.Supplier;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.driver.core.Locator;
 import com.extensions.DriverExtensions;
 import com.extensions.ElementExtensions;
+
+import locators.Locator;
 
 public class LoginPage {
 

@@ -1,4 +1,4 @@
-package com.driver.core;
+package locators;
 
 public class Locator {
 

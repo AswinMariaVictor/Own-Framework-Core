@@ -1,33 +1,27 @@
 package com.driver.core;
 
 import java.time.Duration;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.driver.core.driver_factory.ChromeDriverFactory;
+import com.driver.core.driver_factory.DriverManagerFactory;
+import com.driver.core.driver_factory.FireFoxDriverFactory;
 
 public class TestBase {
 	public WebDriver driver;
 
 	public void driverInitialization() throws Exception {
 		String browserName;
-		if(System.getProperty("browser")!= null)
-		{
-			browserName = System.getProperty("browser");
-		}
-		else
-		{
+		if (System.getProperty("browser") != null) {
+			browserName = System.getProperty("browser").toLowerCase();
+		} else {
 			throw new Exception("Browser not set in pom.xml file.");
 		}
-
-		if(browserName.equalsIgnoreCase("chrome"))
-		{
-		driver = new ChromeDriver();
-		}
-		if(browserName.equalsIgnoreCase("firefox"))
-		{
-			driver = new FirefoxDriver();
-		}
+		Map<String, DriverManagerFactory> driverFactoryMap = Map.of("chrome", new ChromeDriverFactory(), "firefox",
+				new FireFoxDriverFactory());
+		driver = driverFactoryMap.get(browserName).getDriver().initializeDriver();
 	}
 
 	public void navigateToApplication() {
